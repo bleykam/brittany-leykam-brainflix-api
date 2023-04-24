@@ -35,7 +35,7 @@ app.use((req, res, next) => {
 
 app.use((req, res, next) => {
   console.log(
-    `Received a ${req.method} request on server page for ${req.url}, on path ${req.path} Params: ${req.params.videoId}`
+    `Received a ${req.method} request for ${req.url}, `
   );
   next();
 });

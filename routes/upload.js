@@ -17,7 +17,6 @@ router.use(express.static("public"));
 
 router.get("/", (req, res) => {
   const videos = getVideos();
-  console.log(videos)
   const short = videos.map((video) => {
     return {
       id: video.id,
