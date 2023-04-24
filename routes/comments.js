@@ -33,12 +33,12 @@ router.post("/", (req, res) => {
     }
   });
 
-  fs.writeFileSync("./database.json", JSON.stringify(database));
+  fs.writeFileSync("./data/videos.json", JSON.stringify(database));
   res.send("Created New Comment");
 });
 
 function getComments() {
-  const commentsFile = fs.readFileSync("./database.json");
+  const commentsFile = fs.readFileSync("./data/videos.json");
   const comments = JSON.parse(commentsFile);
   return comments;
 }

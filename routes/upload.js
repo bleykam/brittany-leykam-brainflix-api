@@ -17,6 +17,7 @@ router.use(express.static("public"));
 
 router.get("/", (req, res) => {
   const videos = getVideos();
+  console.log(videos)
   const short = videos.map((video) => {
     return {
       id: video.id,
@@ -46,12 +47,12 @@ router.post("/", validator, (req, res) => {
   };
 
   videos.push(newVideo);
-  fs.writeFileSync("./database.json", JSON.stringify(videos));
+  fs.writeFileSync("./data/videos.json", JSON.stringify(videos));
   res.send("created new video");
 });
 
 function getVideos() {
-  const videosFile = fs.readFileSync("./database.json");
+  const videosFile = fs.readFileSync("./data/videos.json");
   const videos = JSON.parse(videosFile);
   return videos;
 }

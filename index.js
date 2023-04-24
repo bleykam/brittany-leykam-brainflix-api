@@ -11,7 +11,7 @@ const uploadRoutes = require("./routes/upload");
 const commentRoutes = require("./routes/comments");
 
 //Read the entire database and parse into a Javascript object;
-let videos = JSON.parse(fs.readFileSync("database.json"));
+let videos = JSON.parse(fs.readFileSync("./data/videos.json"));
 
 app.use(express.json());
 app.use(express.static("public"));
@@ -71,7 +71,7 @@ app.get("/videos/:id", (req, res) => {
 });
 
 function getVideos() {
-  const videosFile = fs.readFileSync("./database.json");
+  const videosFile = fs.readFileSync("./data/videos.json");
   const videos = JSON.parse(videosFile);
   return videos;
 }
